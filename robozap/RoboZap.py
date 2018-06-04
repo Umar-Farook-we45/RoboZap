@@ -100,6 +100,11 @@ class RoboZap(object):
         time.sleep(5)
         return context_id
 
+    def zap_exclude_context(self, contextname, regex):
+        self.zap.context.exclude_from_context(contextname, regex=regex)
+        print "Content excluded from context using {}".format(regex)
+
+
     def zap_start_spider(self, target, url):
         """
         Start ZAP Spider with ZAP's inbuilt spider mode
@@ -323,7 +328,3 @@ class RoboZap(object):
         Shutdown process for ZAP Scanner
         """
         self.zap.core.shutdown()
-
-
-
-
